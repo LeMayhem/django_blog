@@ -2,3 +2,6 @@
 /.env
 src/blog/settings.py
 blog/__pycache__
+src/blog/__pycache__
+src/posts/__pycache__
+src/posts/migrations

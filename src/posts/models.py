@@ -26,3 +26,8 @@ class BlogPost(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
+    
+    @property
+    def author_or_default(self):
+        return self.author.username if self.author else "L'autheur inconnu"
+        
