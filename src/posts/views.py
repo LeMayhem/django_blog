@@ -3,7 +3,7 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 
 from posts.models import BlogPost
 
@@ -18,3 +18,9 @@ class BlogHome(ListView):
         if self.request.user.is_authenticated:
             return queryset
         return queryset.filter(published=True)
+    
+#Vue de création d'article
+class BlogPostCreate(CreateView):
+    model = BlogPost
+    template_name = "posts/blogpost_create.html"
+    fields = ['title', 'content',]
