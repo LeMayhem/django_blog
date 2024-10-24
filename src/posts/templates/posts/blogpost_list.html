@@ -8,15 +8,20 @@
     <h1>Le blog de Docstring</h1>
     {%for post in posts %}
         <article>
-            <h2>{{ post.title }}</h2>
 
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'posts:edit' slug=post.slug %}">Éditer</a>
-                <a href="{% url 'posts:delete' slug=post.slug %}">Supprimer</a>
-            {% endif %}
+            <div class="post-title">
+                <h2>{{ post.title }}</h2>
 
-            <h5>Publié par <i>{{ post.author_or_default }}</i> le {{ post.created_on|date:'j F Y' }}</h5>
-            <p>{{ post.content|safe|truncatewords:50 }}</p>
+                {% if request.user.is_authenticated %}
+                <div>
+                    <a href="{% url 'posts:edit' slug=post.slug %}">Éditer</a>
+                    <a href="{% url 'posts:delete' slug=post.slug %}">Supprimer</a>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="post-author"><h5>Publié par <i>{{ post.author_or_default }}</i> le {{ post.created_on|date:'j F Y' }}</h5></div>
+            <div class="post-excerpt"><p>{{ post.content|safe|truncatewords:50 }}</p></div>
 
             <form action="{% url 'posts:post' slug=post.slug %}">
                 <button>Lire l'article</button>

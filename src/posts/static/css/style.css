@@ -29,3 +29,41 @@ nav {
         width: 85%;
     }
 }
+
+.post-title {
+    display: flex;
+    align-items: center;
+}
+
+.post-title a {
+    color: steelblue;
+    text-decoration: none;
+    margin-left: .5rem;
+}
+
+.post-title a:last-child {
+    color: red;
+}
+
+.post-title > div {
+    margin-left: auto;
+}
+
+.post-author {
+    margin: .5rem 0;
+}
+
+.post-excerpt {
+    margin-bottom: 1rem;
+}
+
+.post-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-detail > h1 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
