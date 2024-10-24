@@ -10,6 +10,6 @@
     <form method="POST">
         {% csrf_token %}
         <p>Êtes-vous sûr de supprimer "{{ post.title }}"?</p>
-        <input type="submit" value="Supprimer">
+        <input type="submit" value="Oui, supprimer">
     </form>
 {% endblock %}

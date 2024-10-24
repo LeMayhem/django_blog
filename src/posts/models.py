@@ -34,4 +34,4 @@ class BlogPost(models.Model):
 
     #Définir la redirection
     def get_absolute_url(self):
-        return reverse('posts:home')        
+        return reverse('posts:home')

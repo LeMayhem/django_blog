@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,10 +7,17 @@
     {% block title %}
         <title>Accueil du blog</title>
     {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+<nav>
+    <a href="{% url 'posts:home' %}">Accueil</a>
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'posts:create' %}">Ajouter un article</a>
+    {% endif %}
+</nav>
 <body>
     <section id="blog">
-        {% block content%}
+        {% block content %}
         {% endblock %}
     </section>
 </body>
