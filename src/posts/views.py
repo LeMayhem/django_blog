@@ -3,7 +3,8 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import ListView, CreateView, UpdateView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 
 from posts.models import BlogPost
 
@@ -37,3 +38,8 @@ class BlogPostDetail(DetailView):
     template_name = "posts/blogpost_detail.html"
     context_object_name = "post"
 
+#Vue d'update d'article
+class BlogPostDelete(DeleteView):
+    model = BlogPost
+    context_object_name = "post"
+    success_url = reverse_lazy("posts:home")
