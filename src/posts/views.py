@@ -3,7 +3,7 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView
 
 from posts.models import BlogPost
 
@@ -30,3 +30,10 @@ class BlogPostUpdate(UpdateView):
     model = BlogPost
     template_name = "posts/blogpost_edit.html"
     fields = ['title', 'content', "published"]
+
+#Vue d'update d'article
+class BlogPostDetail(DetailView):
+    model = BlogPost
+    template_name = "posts/blogpost_detail.html"
+    context_object_name = "post"
+
